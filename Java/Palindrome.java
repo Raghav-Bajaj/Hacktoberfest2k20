@@ -1,40 +1,32 @@
-import java.util.*;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-public class Palindrome 
-{
-    public static void main (String[] args) {
-        Scanner sc= new Scanner(System.in);
-        
-        System.out.println("Enter the word :");
-        String str=sc.nextLine();
-        int len=str.length();
-        
-        Pattern p=Pattern.compile("[^a-z0-9]", Pattern.CASE_INSENSITIVE);
-        Matcher m=p.matcher(str);
-        boolean b=m.find();
-       
-        if(b)
-        {
-            System.out.println("Invalid Input");
-        }
-        else
-        {
-            String rvs=new String();
-            
-            for(int i=(len-1); i>=0; i--)
-            {
-                rvs=rvs+str.charAt(i);
+import java.util.Scanner;
+
+import static java.lang.System.exit;
+
+public class reverseNumber {
+    public static void main(String args[]){
+        Scanner sc = new Scanner(System.in);
+        for (;;){
+            System.out.println("Enter a number to Check if it is Palindrome or not (-1 to quit)");
+            int number = sc.nextInt();
+            int original = number ;
+            if(number == -1){
+                exit(0);
             }
-            
-            if(str.equalsIgnoreCase(rvs))
+            int rev = 0;
+            while(number > 0){
+                int rem = number%10 ;
+                number = number/10;
+                rev = rev *10+rem;
+            }
+            if(original == rev)
             {
-                System.out.println(str+" is a Palindrome");
+                System.out.println(original+" is a Palindrome");
             }
             else
             {
-                System.out.println(str+" is not a Palindrome");
+                System.out.println(original+" is not a Palindrome");
             }
         }
+
     }
 }
