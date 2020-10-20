@@ -1,30 +1,22 @@
-import java.util.*;
+import java.util.Scanner;
 
-class Fibonacci { 
-
-    static int fib(int n) 
-    {
-        int f[] = new int[n + 2];
-
-        // 0th and 1st number of the series are 0 and 1 
-        f[0] = 0; 
-        f[1] = 1; 
-
-        for (int i = 2; i <= n; i++) {
-            // Add the previous 2 numbers in the series and store it
-            f[i] = f[i - 1] + f[i - 2]; 
-        } 
-
-        for(int i=0;i<n+2;i++){
-            System.out.print(f[i] + " ");
-        }
-    } 
-
-    public static void main(String args[]) 
-    { 
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter value of N: ")
-        int n = sc.nextInt();
-        fib(n);
-    } 
+public class fibonacci {
+    public static  void main(String args[]){
+        Scanner src = new Scanner(System.in);
+        int number = src.nextInt();
+        int a = 0 ;
+        int b = 1 ;
+        int sum = 0;
+        System.out.println(a);
+        System.out.println(b);
+        int counter = 2 ;
+        int newDigit = a + b;
+      while(counter < number){
+          System.out.println(newDigit);
+          a = b ;
+          b = newDigit;
+          newDigit = a + b;
+          counter++;
+      }
+    }
 }
